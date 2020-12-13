@@ -52,7 +52,7 @@ export class Country {
     static parseCountryString(countryName: string): Country {
         const [name, ...coordinates] = countryName.split(' ');
         const [xl, yl, xh, yh] = coordinates.map((c) => +c - 1);
-        return new Country(name, { xl, yl, xh, yh } as CountryCoordinates);
+        return new Country(name, { xl, yl, xh, yh });
     }
 }
 

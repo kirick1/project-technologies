@@ -13,17 +13,16 @@ const parseInputFile = (filename: string): string[][] => {
     while (lineIndex < lines.length - 2) {
         const currentLine = lines[lineIndex];
         const countryNumber = parseInt(currentLine);
-        if (countryNumber) {
-            lineIndex += 1;
-            const countries = [];
-            for (let countryLineIndex = lineIndex; countryLineIndex < countryNumber + lineIndex; countryLineIndex++) {
-                countries.push(lines[countryLineIndex]);
-            }
-            lineIndex += countryNumber;
-            countryStrings.push(countries);
-        } else {
+        if (!countryNumber) {
             throw new Error(`Error in input file at '${lines[lineIndex]}'. Expected a number of countries`);
         }
+        lineIndex += 1;
+        const countries = [];
+        for (let countryLineIndex = lineIndex; countryLineIndex < countryNumber + lineIndex; countryLineIndex++) {
+            countries.push(lines[countryLineIndex]);
+        }
+        lineIndex += countryNumber;
+        countryStrings.push(countries);
     }
 
     if (lines[lines.length - 1] !== '0') {

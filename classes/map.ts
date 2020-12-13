@@ -120,7 +120,7 @@ export class MapGrid {
                 });
 
                 if (country.isCompleted()) {
-                    if (result.get(country.name) === undefined) {
+                    if (!result.has(country.name)) {
                         result.set(country.name, days);
                     }
                 }
@@ -131,7 +131,7 @@ export class MapGrid {
                     city.updateCoins();
                 });
             });
-            days += 1;
+            days++;
         } while (!this.isCompleted());
         return result;
     }
