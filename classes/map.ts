@@ -71,10 +71,6 @@ export class MapGrid {
         });
     }
 
-    addNeighbor(x: number, y: number): void {
-
-    }
-
     addNeighborsToCities(): void {
         [...Array(this.width).keys()].forEach((x) => {
             [...Array(this.height).keys()].forEach((y) => {
