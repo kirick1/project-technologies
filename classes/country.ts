@@ -10,6 +10,7 @@ export interface CountryCoordinates {
 export class Country {
     cities: City[] = [];
 
+    static MIN_COORDINATE = 0;
     static MAX_COORDINATE = 10;
     static NAME_MAX_LENGTH = 25;
 
@@ -28,7 +29,11 @@ export class Country {
         };
 
         const isInBounds = (coordinate: number) => {
-            return ((coordinate >= 0) && (coordinate <= Country.MAX_COORDINATE));
+            return (
+                Number.isInteger(coordinate) &&
+                coordinate >= Country.MIN_COORDINATE &&
+                coordinate <= Country.MAX_COORDINATE
+            );
         };
 
         return [
