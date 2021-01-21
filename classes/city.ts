@@ -5,10 +5,10 @@ export class City {
     cache: number[];
 
     constructor(
-      public coinTypesNumber: number,
+      private coinTypesNumber: number,
       countryIndex: number,
       initialCoinsCount: number,
-      public representativePortion: number,
+      private representativePortion: number,
     ) {
         this.coins = Array.from({ length: coinTypesNumber }, () => 0)
         this.cache = Array.from({ length: coinTypesNumber }, () => 0)

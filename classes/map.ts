@@ -59,10 +59,8 @@ export class MapGrid {
     addCitiesToCountries(): void {
         const countryCount = this.countries.length;
         this.countries.forEach((country, countryIndex) => {
-            for (let i = 0; i < country.coordinates.xh - country.coordinates.xl + 1; i++) {
-                for (let j = 0; j < country.coordinates.yh - country.coordinates.yl + 1; j++) {
-                    const x = country.coordinates.xl + i;
-                    const y = country.coordinates.yl + j;
+            for (let x = country.coordinates.xl; x <= country.coordinates.xh; x++) {
+                for (let y = country.coordinates.yl; y <= country.coordinates.yh; y++) {
                     const city = new City(countryCount, countryIndex, INITIAL_COINS_COUNT, REPRESENTATIVE_PORTION);
                     this.countriesGrid.set([x, y], city);
                     this.countries[countryIndex].addCity(city);
